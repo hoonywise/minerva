@@ -1,0 +1,117 @@
+# Basic SearxNG configuration for WebUI integration
+
+use_default_settings: false  # Ensure our settings take priority
+
+general:
+  debug: false
+  instance_name: "Minerva Search"
+  enable_metrics: false
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: "en-US"
+  ban_time_on_fail: 5
+  max_ban_time_on_fail: 60
+  cache_time: 7200
+  max_search_time: 20  
+
+redis:
+  url: redis://redis:6379/0  # Enable Redis for better caching if possible
+
+doi_resolvers:
+  oadoi.org: 'https://doi.org/'
+  doi.org: 'https://doi.org/'
+  doai.io: 'https://doai.io/'
+  sci-hub.do: 'https://sci-hub.do/'
+
+default_doi_resolver: 'doi.org'
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"  
+  base_url: "http://searxng:8080/"
+  secret_key: "${SEARXNG_SECRET_KEY}"
+  limiter: false
+  # IMPORTANT: Enable JSON format for API access
+  formats:
+    - html
+    - json
+    - csv
+
+# IMPROVED user agent configuration
+outgoing:
+  request_timeout: 8.0  # INCREASED timeout
+  pool_connections: 150
+  pool_maxsize: 150
+  useragent_suffix: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+  enable_http2: true
+  max_redirects: 5  
+  retries: 2                   
+  keepalive_expiry: 300         
+
+# UI Configuration
+ui:
+  query_in_title: true
+  infinite_scroll: true
+  center_alignment: true
+default_theme: simple
+
+# UPDATED engine configuration with properly enabled news engines
+engines:
+  # Standard search engines
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+    timeout: 10.0  
+    
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+    timeout: 5.0  
+    
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    disabled: false
+    timeout: 5.0  
+  
+  # NEWS ENGINES (added)
+  - name: google news
+    engine: google_news
+    shortcut: gn
+    disabled: false
+    timeout: 5.0
+    
+  - name: bing news
+    engine: bing_news
+    shortcut: bn
+    disabled: false
+    timeout: 5.0
+  
+  - name: yahoo news
+    engine: yahoo_news
+    shortcut: yn
+    disabled: false
+    timeout: 5.0
+    
+  # Reference engines
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: wp
+    disabled: false  # ENABLED
+    timeout: 5.0  # INCREASED timeout
+
+# Force aggregation of results
+result_proxy:
+  url: ""
+  key: ""
+  proxify_results: false
+  
+# IMPROVED language settings for news articles
+search_language_names:
+  en: English
+  en-US: English (US)
+  en-GB: English (UK)

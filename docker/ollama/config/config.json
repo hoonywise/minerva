@@ -1,0 +1,11 @@
+{
+    "num_threads": 14,
+    "batch_size": 2048,
+    "num_ctx": 8192,
+    "num_gpu_layers": -1,
+    "rope_frequency_base": 10000,
+    "rope_frequency_scale": 1.0,
+    "mlock": true,
+    "gpu_device_index": 0,
+    "f16": true
+  }

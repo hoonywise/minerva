@@ -1,0 +1,23 @@
+# Ignore cache, logs, and environment files
+*.key
+*.crt
+*.pem
+*.csr
+*.srl
+.env
+*.log
+*.tmp
+*.code-workspace
+docker/huggingface_cache/
+docker/huggingface_cache/*
+docker/kokoro-tts/models/
+docker/kokoro-tts/models/*
+docker/nginx/ssl/
+docker/nginx/ssl/*
+
+
+# ALLOW project files
+!*.py
+!*.js
+!*.html
+!*.css

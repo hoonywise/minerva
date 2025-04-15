@@ -1,0 +1,15 @@
+[nvidia-container-cli]
+no-cgroups = false
+debug = "/var/log/nvidia-container-runtime-debug.log"
+
+[nvidia-container-runtime]
+debug = "/var/log/nvidia-container-runtime-debug.log"
+
+# Optimize for AI workloads
+environment = [
+    "NVIDIA_VISIBLE_DEVICES=all",
+    "NVIDIA_DRIVER_CAPABILITIES=compute,utility,video",
+    "CUDA_CACHE_DISABLE=0",
+    "CUDA_CACHE_MAXSIZE=2147483648",
+    "CUDA_AUTO_BOOST=1"
+]
