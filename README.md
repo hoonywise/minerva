@@ -14,6 +14,7 @@ Minerva is a self-hosted, GPU-accelerated AI stack designed for private, high-pe
 ![GPU](https://img.shields.io/badge/GPU-Inference-orange?logo=nvidia)
 ![Private](https://img.shields.io/badge/Secure-Private%20Network-brightgreen?logo=tailscale)
 ![Built With Love](https://img.shields.io/badge/Built%20with-Minerva%20Power-red?logo=github)
+[![Support Minerva](https://img.shields.io/badge/Support-Minerva-blue?logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=NJSTAENDWQLXS)
 
 ![Minerva Architecture](docker/assets/diagram/minerva_diagram.png)
 
